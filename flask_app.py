@@ -65,6 +65,16 @@ def data_handler():
     req_parsed = [{'Data': stringify_record(r)} for r in payload]
     print('parsed request')
     pprint(req_parsed)
+	
+    '''format: Records=[
+        {
+	    'Data': b'::12345::67.89::01.23::4.5677::'
+        },
+        {
+            'Data': b'::12432::78.23::64.56::2.3525::'
+        }
+      ]'''
+
 
     # convert str to bytes for every record
     for elem in req_parsed:
@@ -73,15 +83,6 @@ def data_handler():
 
     response = client.put_record_batch(
         DeliveryStreamName='road-data-stream',
-        #Records=[
-        #    {
-        #        'Data': b'::12345::67.89::01.23::4.5677::'
-        #    },
-        #    {
-        #        'Data': b'::12432::78.23::64.56::2.3525::'
-        #    }
-        #    ]
-        #)
         Records=req_parsed)
 
     pprint(response)
@@ -90,28 +91,7 @@ def data_handler():
 
 
 
-
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=False)
 
-
-
-'''
-response = client.put_record_batch(
-    DeliveryStreamName='road-data-stream',
-    Records=[
-        {
-            #'Data': b64encode(b'TE AMMAZZO'),
-            'Data': b'::12345::67.89::01.23::4.5677::'
-        },
-        {
-            'Data': b'::12432::78.23::64.56::2.3525::'
-        }
-    ]
-)
-
-
-pprint(response)
-'''
 
