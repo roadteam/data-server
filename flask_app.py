@@ -31,11 +31,11 @@ def get_map():
 
 @app.route('/data/<path:path>')
 def get_data(path):
-    return send_from_directory('data', path)
+    return send_from_directory('data-visualization/data', path)
 
 @app.route('/images/<path:path>')
 def get_images(path):
-    return send_from_directory('images', path)
+    return send_from_directory('data-visualization/images', path)
 
 
 @app.route('/road-data', methods=['GET', 'PUT'])
