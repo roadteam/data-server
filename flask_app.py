@@ -26,7 +26,7 @@ def tmp():
 
 @app.route('/anomalies_map')
 def get_map():
-	return open('anomalies_map.html').read()
+	return open('data-visualization/anomalies_map.html').read()
 
 
 @app.route('/data/<path:path>')
