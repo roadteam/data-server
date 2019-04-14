@@ -10,7 +10,7 @@ from retrieve_object import get_all_records, init_keys
 REGION_NAME = 'your region'
 AWS_ACCESS_KEY_ID = 'your aws key id'
 AWS_SECRET_ACCESS_KEY = 'your aws secret key id'
-
+init_keys(REGION_NAME, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
 
 client = boto3.client('firehose', region_name=REGION_NAME, aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
